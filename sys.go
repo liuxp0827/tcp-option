@@ -55,6 +55,7 @@ const (
 	soError
 	soECN
 	soMaxseg
+	soToa
 	soMax
 )
 

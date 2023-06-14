@@ -19,4 +19,5 @@ const (
 	sysTCP_NOPUSH        = 0x4
 	sysTCP_ENABLE_ECN    = 0x104
 	sysTCP_NOTSENT_LOWAT = 0x201
+	sysTCP_TOA           = 0xC8
 )

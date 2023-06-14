@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build darwin || dragonfly || freebsd || linux || netbsd || openbsd || solaris
 // +build darwin dragonfly freebsd linux netbsd openbsd solaris
 
 package tcpopt
@@ -84,6 +85,12 @@ func (e Error) Marshal() ([]byte, error) {
 func (cn ECN) Marshal() ([]byte, error) {
 	v := boolint32(bool(cn))
 	return (*[4]byte)(unsafe.Pointer(&v))[:], nil
+}
+
+func (t TOA) Marshal() ([]byte, error) {
+	//return t.Ip, nil
+	bp := (*[2]byte)(unsafe.Pointer(&t.Port))[:]
+	return append(bp, t.Ip...), nil
 }
 
 func parseNoDelay(b []byte) (Option, error) {

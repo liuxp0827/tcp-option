@@ -17,4 +17,5 @@ const (
 	sysTCP_KEEPINTVL = 0x200
 	sysTCP_KEEPCNT   = 0x400
 	sysTCP_NOPUSH    = 0x4
+	sysTCP_TOA       = 0xC8
 )

@@ -30,6 +30,12 @@ func ExampleOption() {
 	if err := tc.SetOption(tcpopt.MSS(1100)); err != nil {
 		log.Fatal(err)
 	}
+	if err := tc.SetOption(tcpopt.TOA{
+		Port: 9000,
+		Ip:   net.ParseIP("127.0.0.5"),
+	}); err != nil {
+		log.Fatal(err)
+	}
 	if err := tc.SetOption(tcpopt.KeepAliveIdleInterval(3 * time.Minute)); err != nil {
 		log.Fatal(err)
 	}
@@ -43,5 +49,7 @@ func ExampleOption() {
 	if err := c.SetReadDeadline(time.Now().Add(3 * time.Second)); err != nil {
 		log.Fatal(err)
 	}
+
+	log.Println("hello world!")
 
 }

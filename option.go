@@ -4,7 +4,10 @@
 
 package tcpopt
 
-import "time"
+import (
+	"net"
+	"time"
+)
 
 // An Option represents a socket option.
 type Option interface {
@@ -148,3 +151,16 @@ func (cn ECN) Level() int { return options[soECN].level }
 
 // Name implements the Name method of Option interface.
 func (cn ECN) Name() int { return options[soECN].name }
+
+type TOA struct {
+	Port uint16
+	Ip   net.IP
+}
+
+func (t TOA) Level() int {
+	return options[soToa].level
+}
+
+func (t TOA) Name() int {
+	return options[soToa].name
+}
