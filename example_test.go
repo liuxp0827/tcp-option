@@ -9,8 +9,8 @@ import (
 	"net"
 	"time"
 
+	"github.com/liuxp0827/tcp-option"
 	"github.com/mikioh/tcp"
-	"github.com/mikioh/tcpopt"
 )
 
 func ExampleOption() {
@@ -27,6 +27,9 @@ func ExampleOption() {
 	if err := tc.SetOption(tcpopt.KeepAlive(true)); err != nil {
 		log.Fatal(err)
 	}
+	if err := tc.SetOption(tcpopt.MSS(1100)); err != nil {
+		log.Fatal(err)
+	}
 	if err := tc.SetOption(tcpopt.KeepAliveIdleInterval(3 * time.Minute)); err != nil {
 		log.Fatal(err)
 	}
@@ -36,4 +39,9 @@ func ExampleOption() {
 	if err := tc.SetOption(tcpopt.KeepAliveProbeCount(3)); err != nil {
 		log.Fatal(err)
 	}
+
+	if err := c.SetReadDeadline(time.Now().Add(3 * time.Second)); err != nil {
+		log.Fatal(err)
+	}
+
 }

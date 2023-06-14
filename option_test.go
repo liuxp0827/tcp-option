@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mikioh/tcpopt"
+	"github.com/liuxp0827/tcp-option"
 )
 
 func TestMarshalAndParse(t *testing.T) {
