@@ -88,9 +88,11 @@ func (cn ECN) Marshal() ([]byte, error) {
 }
 
 func (t TOA) Marshal() ([]byte, error) {
-	//return t.Ip, nil
+	opt := []byte{t.Kind, t.Len}
 	bp := (*[2]byte)(unsafe.Pointer(&t.Port))[:]
-	return append(bp, t.Ip...), nil
+	data := append(opt, bp...)
+	data = append(data, t.Ip...)
+	return data, nil
 }
 
 func parseNoDelay(b []byte) (Option, error) {

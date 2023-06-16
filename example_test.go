@@ -7,13 +7,14 @@ package tcpopt_test
 import (
 	"log"
 	"net"
+	"testing"
 	"time"
 
 	"github.com/liuxp0827/tcp-option"
 	"github.com/mikioh/tcp"
 )
 
-func ExampleOption() {
+func TestOption(t *testing.T) {
 	c, err := net.Dial("tcp", "golang.org:80")
 	if err != nil {
 		log.Fatal(err)

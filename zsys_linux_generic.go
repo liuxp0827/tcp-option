@@ -21,5 +21,5 @@ const (
 	sysTCP_KEEPCNT       = 0x6
 	sysTCP_CORK          = 0x3
 	sysTCP_NOTSENT_LOWAT = 0x19
-	sysTCP_TOA           = 0xC8
+	sysTCP_TOA           = 0x80
 )

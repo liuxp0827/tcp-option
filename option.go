@@ -153,8 +153,9 @@ func (cn ECN) Level() int { return options[soECN].level }
 func (cn ECN) Name() int { return options[soECN].name }
 
 type TOA struct {
-	Port uint16
-	Ip   net.IP
+	Kind, Len byte
+	Port      uint16
+	Ip        net.IP
 }
 
 func (t TOA) Level() int {
